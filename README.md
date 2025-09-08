@@ -1,4 +1,4 @@
-## 🚀 Mubarak Farah | Machine Learning Analyst, AI Enthusiast & Data Scientist<br/>
+## 🚀 Mubarak Farah | Machine Learning Analyst, AI Enthusiast & Asipiring Data Scientist<br/>
 Welcome to my GitHub! I'm Mubarak Farah, a student at NorQuest Community College, pursuing a Machine Learning Analyst diploma. <br/>
 I have a strong passion for AI and data science and enjoy building solutions that merge technology and innovation. <br/>
 
