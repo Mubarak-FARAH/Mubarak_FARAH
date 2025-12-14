@@ -1,36 +1,37 @@
-## 🚀 Mubarak Farah | Machine Learning Analyst, AI Enthusiast & Asipiring Data Scientist<br/>
-Welcome to my GitHub! I'm Mubarak Farah, a student at NorQuest Community College, pursuing a Machine Learning Analyst diploma. <br/>
-I have a strong passion for AI and data science and enjoy building solutions that merge technology and innovation. <br/>
+NPRI Time-Series Forecasting: Coal Phase-out Impact Prediction
+Project Objective (Policy-Driven Forecasting)
+This project addresses a critical environmental policy question: Predict the total annual pollutant releases (in kilograms) from the fossil-fuel powered electricity generation sector in the year 2030, assuming a complete phase-out of coal-fired power plants.
 
-## 🌐 Socials:
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://linkedin.com/in/linkedin.com/in/mubarak-farah-2599bb2bb) [![email](https://img.shields.io/badge/Email-D14836?logo=gmail&logoColor=white)](mailto:MubarakFarah52@gmail.com) 
+This is framed as a Time-Series Regression challenge using the National Pollutant Release Inventory (NPRI) dataset, requiring advanced data preparation and specialized mathematical modeling to forecast the complex non-linear trend of releases from the remaining non-coal facilities.
 
-# 💻 Tech Stack:
-![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) ![SQLite](https://img.shields.io/badge/sqlite-%2307405e.svg?style=for-the-badge&logo=sqlite&logoColor=white) ![MySQL](https://img.shields.io/badge/mysql-4479A1.svg?style=for-the-badge&logo=mysql&logoColor=white) ![ApacheCassandra](https://img.shields.io/badge/cassandra-%231287B1.svg?style=for-the-badge&logo=apache-cassandra&logoColor=white) ![mlflow](https://img.shields.io/badge/mlflow-%23d9ead3.svg?style=for-the-badge&logo=numpy&logoColor=blue) ![NumPy](https://img.shields.io/badge/numpy-%23013243.svg?style=for-the-badge&logo=numpy&logoColor=white) ![Pandas](https://img.shields.io/badge/pandas-%23150458.svg?style=for-the-badge&logo=pandas&logoColor=white) ![PyTorch](https://img.shields.io/badge/PyTorch-%23EE4C2C.svg?style=for-the-badge&logo=PyTorch&logoColor=white) ![scikit-learn](https://img.shields.io/badge/scikit--learn-%23F7931E.svg?style=for-the-badge&logo=scikit-learn&logoColor=white) ![TensorFlow](https://img.shields.io/badge/TensorFlow-%23FF6F00.svg?style=for-the-badge&logo=TensorFlow&logoColor=white) ![Matplotlib](https://img.shields.io/badge/Matplotlib-%23ffffff.svg?style=for-the-badge&logo=Matplotlib&logoColor=black) ![Power Bi](https://img.shields.io/badge/power_bi-F2C811?style=for-the-badge&logo=powerbi&logoColor=black)
-<!-- # 📊 GitHub Stats:
-![](https://github-readme-stats.vercel.app/api?username=Mubarak-FARAH&theme=dark&hide_border=false&include_all_commits=false&count_private=false)<br/>
-![](https://nirzak-streak-stats.vercel.app/?user=Mubarak-FARAH&theme=dark&hide_border=false)<br/>
-![](https://github-readme-stats.vercel.app/api/top-langs/?username=Mubarak-FARAH&theme=dark&hide_border=false&include_all_commits=false&count_private=false&layout=compact) -->
+Methodology and Technical Execution
+Technologies Used
+Language: Python
+Environment: Jupyter Notebook / Google Colab
+Core Libraries: pandas, numpy, matplotlib, seaborn, scipy.optimize (for curve fitting)
+Data Engineering and Target Construction
+A major component of this project was transforming the raw NPRI data to create the specific prediction target:
 
-<!-- ## 🏆 GitHub Trophies
-![](https://github-profile-trophy.vercel.app/?username=Mubarak-FARAH&theme=radical&no-frame=false&no-bg=true&margin-w=4) -->
+Unit Standardization: The original 737,516 records contained releases across 12 pathways in mixed units (g, kg, tonnes). All pathways were summed and standardized to a single unit: kilograms (kg).
+Sector and Coal Isolation: Data was filtered for the Fossil-fuel electric power generation sector (
+NAICS 
+221112
+). A feature was engineered (is_using_coal) by identifying 
+28
+ coal facilities (releasing 
+≥
+5
+ kg
+ of Mercury).
+Final Target: The 
+28
+ coal facilities were excluded to simulate the phase-out. The final time-series target is the aggregated total annual releases (in kg) for the remaining non-coal facilities by year.
+Modeling Strategy: Non-linear Trend Forecasting
+Due to the expectation that environmental releases follow a non-linear, asymptotic trend (releases decrease rapidly initially and then level off), a standard linear regression is unsuitable.
 
-### ✍️ Quote
-![](https://quotes-github-readme.vercel.app/api?type=horizontal&theme=radical)
+The model uses a custom implementation of the Declining Logistic (S-Curve) Function to accurately fit the historical trend and forecast the total releases for the year 2030. This function is ideal for modeling scenarios that approach a fixed minimum or maximum boundary over time.
 
-<!-- ### 🔝 Top Contributed Repo
-![](https://github-contributor-stats.vercel.app/api?username=Mubarak-FARAH&limit=5&theme=dark&combine_all_yearly_contributions=true) -->
+The fitted curve provides a mathematically sound forecast of the expected environmental impact from the remaining non-coal sources after the major policy intervention (coal phase-out).
 
-<!-- Proudly created with GPRM ( https://gprm.itsvg.in ) -->
-## 🔥 What I’m Working On<br/>
-**Machine Learning & AI:** Experimenting with predictive models and AI pathfinding in complex environments. <br/>
-**Data Science & Analytics:** Working with Python, SQL, NoSQL (Cassandra) and optimizing data workflows. <br/>
-**Big Data & Visualization:** Leveraging Tableau & Power BI for insightful data storytelling. <br/>
-**Algorithm Optimization:** Studying Sorting Algorithms and HashMaps for optimizing data stuctures and improving performance. <br/>
-
-## 📌 Projects & Repositories<br/>
-🚧 New projects coming soon! Stay tuned. 🚧 <br/>
-
-**⭐ Feel free to fork, contribute, or reach out if you share similar interests! <br/>**
-
-<!-- Proudly created with GPRM ( https://gprm.itsvg.in ) -->
+Project Setup
+To clone and execute this analysis locally, use the following commands.
